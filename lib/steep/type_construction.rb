@@ -3110,7 +3110,7 @@ module Steep
         block_next_type: return_hint,
         block_block_hint: block_hint,
         block_annotations: block_annotations,
-        block_self_hint: self_hint,
+        block_self_hint: self_hint || self.self_type,,
         node_type_hint: nil
       )
 
@@ -4066,7 +4066,7 @@ module Steep
                 block_next_type: method_type.block.type.return_type,
                 block_block_hint: nil,
                 block_annotations: block_annotations,
-                block_self_hint: method_type.block.self_type,
+                block_self_hint: method_type.block.self_type || constr.self_type,
                 node_type_hint: method_type.type.return_type
               )
 
